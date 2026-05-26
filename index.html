@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internship Application Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="form-header">
+    <div class="eyebrow">2025 Program</div>
+    <h1>Internship<br><em>Application</em></h1>
+    <p>Join our team and kickstart your career. Fill in the details below — we review every application personally.</p>
+  </div>
+
+  <div class="progress-bar" id="progressBar">
+    <div class="progress-step" data-index="0"></div>
+    <div class="progress-step" data-index="1"></div>
+    <div class="progress-step" data-index="2"></div>
+    <div class="progress-step" data-index="3"></div>
+    <div class="progress-step" data-index="4"></div>
+  </div>
+
+  <form id="appForm" novalidate>
+
+    <!-- 1. Personal Information -->
+    <div class="section" data-section="0">
+      <div class="section-title" onclick="toggleSection(this)">
+        <div class="section-icon">👤</div>
+        <h3>Personal Information</h3>
+        <span class="section-toggle">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="field-grid">
+          <div class="field full">
+            <label for="name">Full Name <span style="color:var(--error)">*</span></label>
+            <input type="text" id="name" placeholder="Jane Smith" required>
+            <span class="field-error" id="nameErr">Please enter your full name.</span>
+          </div>
+          <div class="field">
+            <label for="email">Email Address <span style="color:var(--error)">*</span></label>
+            <input type="email" id="email" placeholder="jane@email.com" required>
+            <span class="field-error" id="emailErr">Enter a valid email address.</span>
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number <span style="color:var(--error)">*</span></label>
+            <input type="tel" id="phone" placeholder="+91 98765 43210" required>
+            <span class="field-error" id="phoneErr">Enter a valid phone number.</span>
+          </div>
+          <div class="field">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob">
+          </div>
+          <div class="field full">
+            <label>Gender</label>
+            <div class="radio-group" id="genderGroup">
+              <label class="radio-label"><input type="radio" name="gender" value="Male"><span class="radio-dot"></span>Male</label>
+              <label class="radio-label"><input type="radio" name="gender" value="Female"><span class="radio-dot"></span>Female</label>
+              <label class="radio-label"><input type="radio" name="gender" value="Non-binary"><span class="radio-dot"></span>Non-binary</label>
+              <label class="radio-label"><input type="radio" name="gender" value="Prefer not to say"><span class="radio-dot"></span>Prefer not to say</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Educational Details -->
+    <div class="section" data-section="1">
+      <div class="section-title" onclick="toggleSection(this)">
+        <div class="section-icon">🎓</div>
+        <h3>Educational Details</h3>
+        <span class="section-toggle">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="field-grid">
+          <div class="field full">
+            <label for="college">College / University <span style="color:var(--error)">*</span></label>
+            <input type="text" id="college" placeholder="IIT Hyderabad" required>
+            <span class="field-error" id="collegeErr">Please enter your institution name.</span>
+          </div>
+          <div class="field">
+            <label for="degree">Degree <span style="color:var(--error)">*</span></label>
+            <select id="degree" required>
+              <option value="">Select degree</option>
+              <option>B.Tech</option>
+              <option>B.Sc</option>
+              <option>BCA</option>
+              <option>M.Tech</option>
+              <option>MBA</option>
+              <option>Other</option>
+            </select>
+            <span class="field-error" id="degreeErr">Please select your degree.</span>
+          </div>
+          <div class="field">
+            <label for="year">Year of Study <span style="color:var(--error)">*</span></label>
+            <select id="year" required>
+              <option value="">Select year</option>
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+              <option>Graduate</option>
+            </select>
+            <span class="field-error" id="yearErr">Please select your year.</span>
+          </div>
+          <div class="field">
+            <label for="cgpa">CGPA</label>
+            <input type="number" id="cgpa" step="0.01" min="0" max="10" placeholder="8.5">
+            <span class="field-hint">Out of 10</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Internship Details -->
+    <div class="section" data-section="2">
+      <div class="section-title" onclick="toggleSection(this)">
+        <div class="section-icon">💼</div>
+        <h3>Internship Details</h3>
+        <span class="section-toggle">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="field-grid">
+          <div class="field full">
+            <label for="position">Position Applying For <span style="color:var(--error)">*</span></label>
+            <select id="position" required>
+              <option value="">Choose a role</option>
+              <option>Web Development</option>
+              <option>Data Science</option>
+              <option>UI/UX Design</option>
+              <option>Marketing</option>
+              <option>Product Management</option>
+            </select>
+            <span class="field-error" id="positionErr">Please select a position.</span>
+          </div>
+          <div class="field full">
+            <label>Skills</label>
+            <div class="checkbox-group" id="skillsGroup">
+              <label class="checkbox-label"><input type="checkbox" value="HTML"><span class="checkbox-tick">✓</span>HTML</label>
+              <label class="checkbox-label"><input type="checkbox" value="CSS"><span class="checkbox-tick">✓</span>CSS</label>
+              <label class="checkbox-label"><input type="checkbox" value="JavaScript"><span class="checkbox-tick">✓</span>JavaScript</label>
+              <label class="checkbox-label"><input type="checkbox" value="Python"><span class="checkbox-tick">✓</span>Python</label>
+              <label class="checkbox-label"><input type="checkbox" value="React"><span class="checkbox-tick">✓</span>React</label>
+              <label class="checkbox-label"><input type="checkbox" value="SQL"><span class="checkbox-tick">✓</span>SQL</label>
+              <label class="checkbox-label"><input type="checkbox" value="Figma"><span class="checkbox-tick">✓</span>Figma</label>
+            </div>
+          </div>
+          <div class="field full">
+            <label>Upload Resume (PDF) <span style="color:var(--error)">*</span></label>
+            <div class="file-drop" id="fileDrop" onclick="document.getElementById('resumeFile').click()">
+              <input type="file" id="resumeFile" accept=".pdf">
+              <div class="file-drop-icon">📄</div>
+              <p><strong>Click to upload</strong> or drag &amp; drop<br><span style="font-size:11px;color:var(--text-dim)">PDF only · Max 5MB</span></p>
+              <div class="file-name" id="fileName"></div>
+            </div>
+            <span class="field-error" id="resumeErr">Please upload your resume.</span>
+          </div>
+          <div class="field full">
+            <label for="whyUs">Why Should We Select You? <span style="color:var(--error)">*</span></label>
+            <textarea id="whyUs" placeholder="Tell us what makes you a great fit — your strengths, projects, or ambitions..." maxlength="500" required></textarea>
+            <div class="char-counter"><span id="charCount">0</span> / 500</div>
+            <span class="field-error" id="whyErr">Please write at least 50 characters.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Availability -->
+    <div class="section" data-section="3">
+      <div class="section-title" onclick="toggleSection(this)">
+        <div class="section-icon">📅</div>
+        <h3>Availability</h3>
+        <span class="section-toggle">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="field-grid">
+          <div class="field full">
+            <label>Internship Duration <span style="color:var(--error)">*</span></label>
+            <div class="radio-group" id="durationGroup">
+              <label class="radio-label"><input type="radio" name="duration" value="1 Month"><span class="radio-dot"></span>1 Month</label>
+              <label class="radio-label"><input type="radio" name="duration" value="3 Months"><span class="radio-dot"></span>3 Months</label>
+              <label class="radio-label"><input type="radio" name="duration" value="6 Months"><span class="radio-dot"></span>6 Months</label>
+            </div>
+            <span class="field-error" id="durationErr">Please select a duration.</span>
+          </div>
+          <div class="field full">
+            <label for="startDate">Available Start Date</label>
+            <input type="date" id="startDate">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Declaration -->
+    <div class="section" data-section="4">
+      <div class="section-title" onclick="toggleSection(this)">
+        <div class="section-icon">✅</div>
+        <h3>Declaration</h3>
+        <span class="section-toggle">▾</span>
+      </div>
+      <div class="section-body">
+        <label class="confirm-label" id="confirmLabel" onclick="toggleConfirm()">
+          <div class="confirm-box" id="confirmBox">✓</div>
+          I confirm that all the information provided is accurate and true to the best of my knowledge. I understand that any false information may result in disqualification.
+        </label>
+        <span class="field-error" id="confirmErr">You must confirm this statement.</span>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn btn-secondary" onclick="resetForm()">Clear</button>
+      <button type="submit" class="btn btn-primary">Submit Application →</button>
+    </div>
+
+  </form>
+
+  <div class="success-screen" id="successScreen">
+    <div class="success-icon">🎉</div>
+    <h2>Application Submitted!</h2>
+    <p>Thank you for applying. We've received your application and will review it carefully.<br>Expect to hear from us within <strong style="color:var(--accent)">5–7 business days</strong>.</p>
+    <br>
+    <button class="btn btn-secondary" onclick="startOver()" style="margin:0 auto;display:block;">Submit Another</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
